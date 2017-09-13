@@ -56,7 +56,7 @@ app.post("/api/contacts", function(req, res) {
     var newContact = req.body;
 
   if (!req.body.name) {
-    handleError(res, "Invalid user input", req, 400);
+    handleError(res, "Invalid user input", "Must provide a name.", 400);
   } else {
     db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
       if (err) {
